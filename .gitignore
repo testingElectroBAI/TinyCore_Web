@@ -8,3 +8,7 @@ Thumbs.db
 # Build artifacts
 remaster_work/
 *.sh
+
+# Dev prototypes
+easter.html
+index1.html

@@ -1,0 +1,145 @@
+/* tinycore.css — live TinyCore VM widget */
+
+/* TINYCORE WIDGET */
+
+.tc-widget {
+  margin-top: 2.5rem;
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  overflow: hidden;
+  background: #000;
+  transition: border-color .25s;
+}
+
+.tc-widget:hover {
+  border-color: var(--border2);
+}
+
+.tc-titlebar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: .55rem 1rem;
+  background: var(--surface);
+  border-bottom: 1px solid var(--border);
+}
+
+.tc-titlebar .dots {
+  display: flex;
+  gap: .45rem;
+}
+
+.tc-titlebar .dots span {
+  display: inline-block;
+  width: 9px;
+  height: 9px;
+  border-radius: 50%;
+}
+
+.tc-titlebar .dots span:nth-child(1) {
+  background: #ff5f56;
+}
+
+.tc-titlebar .dots span:nth-child(2) {
+  background: #ffbd2e;
+}
+
+.tc-titlebar .dots span:nth-child(3) {
+  background: #27c93f;
+}
+
+#tc-status {
+  font-family: var(--mono);
+  font-size: .62rem;
+  color: var(--cyan);
+  letter-spacing: .15em;
+  text-transform: uppercase;
+  font-weight: 600;
+}
+
+#tc-screen {
+  background: #000;
+  min-height: 420px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+
+#tc-screen canvas {
+  max-width: 100%;
+  display: block;
+}
+
+.tc-boot-gate {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.5rem;
+  padding: 3rem 2rem;
+  text-align: center;
+  animation: fadeIn .5s ease;
+}
+
+.tc-boot-gate p {
+  margin: 0;
+  color: var(--text2);
+  font-family: var(--mono);
+  font-size: .75rem;
+  line-height: 1.85;
+  max-width: 52ch;
+}
+
+#tc-boot-btn {
+  font-family: var(--mono);
+  font-size: .7rem;
+  padding: .65rem 1.6rem;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+  font-weight: 600;
+  background: var(--cyan);
+  color: #000;
+  border: 1px solid var(--cyan);
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background .2s, transform .15s;
+}
+
+#tc-boot-btn:hover:not(:disabled) {
+  background: #ff7a7c;
+  transform: translateY(-1px);
+}
+
+#tc-boot-btn:active:not(:disabled) {
+  transform: translateY(1px);
+}
+
+#tc-boot-btn:disabled {
+  opacity: .45;
+  cursor: not-allowed;
+}
+
+.tc-footbar {
+  display: flex;
+  justify-content: space-between;
+  padding: .55rem 1rem;
+  border-top: 1px solid var(--border);
+  background: var(--surface);
+  font-family: var(--mono);
+  font-size: .6rem;
+  color: var(--text3);
+  letter-spacing: .06em;
+}
+
+#tc-fallback {
+  display: none;
+  padding: 2.5rem;
+  text-align: center;
+  font-family: var(--mono);
+  font-size: .75rem;
+  color: var(--cyan);
+  background: #000;
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  margin-top: 2.5rem;
+}

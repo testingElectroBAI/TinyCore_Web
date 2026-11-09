@@ -1,0 +1,9 @@
+# Dev artifacts — never publish these
+.git/
+.vscode/
+remaster.sh
+*.sh
+
+# Dev prototypes
+easter.html
+index1.html

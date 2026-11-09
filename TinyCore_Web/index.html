@@ -1,0 +1,425 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Baibhab Das — Linux Specialist & Robotics Inventor</title>
+  <meta name="description"
+    content="Portfolio of Baibhab Das — Linux specialist, robotics inventor, and embedded systems engineer. Explore projects, skills, and a live TinyCore Linux VM.">
+  <link rel="icon" type="image/svg+xml" href="terminal.svg">
+  <link
+    href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;600&family=Syne:wght@400;600;700;800&display=swap"
+    rel="stylesheet">
+  <link rel="stylesheet"
+    href="https://cdn-uicons.flaticon.com/2.6.0/uicons-regular-rounded/css/uicons-regular-rounded.css">
+  <!-- Site styles (order matters: later files build on earlier ones) -->
+  <link rel="stylesheet" href="css/base.css">
+  <link rel="stylesheet" href="css/layout.css">
+  <link rel="stylesheet" href="css/sections.css">
+  <link rel="stylesheet" href="css/loader.css">
+  <link rel="stylesheet" href="css/tinycore.css">
+  <link rel="stylesheet" href="css/game.css">
+</head>
+
+<body>
+
+  <!-- BACKGROUND: letter-grid image (parallax in js/background.js) + dark scrim -->
+  <div id="letterGridBg" aria-hidden="true">
+    <img id="letterGrid" src="assets/letter-grid.svg" alt="" aria-hidden="true" decoding="async" loading="eager">
+    <div id="letterGridScrim"></div>
+  </div>
+
+  <!-- LOADING SCREEN -->
+  <div id="page-loader">
+    <p class="loader-title">[<span>ElectroBAI</span>]</p>
+    <p class="loader-subtitle">Robotics &middot; AI &middot; Embedded Systems</p>
+    <div class="loader-bar-wrap">
+      <div class="loader-bar"></div>
+    </div>
+    <p class="loader-text">Loading modules...</p>
+  </div>
+
+  <!-- NAV -->
+  <nav>
+    <div class="nav-logo">BD<span>://</span>portfolio</div>
+    <div class="nav-links">
+      <a href="#evolution">Timeline</a>
+      <a href="#skills">Skills</a>
+      <a href="#hub">GitHub</a>
+      <a href="#tinycore">Live OS</a>
+      <a href="#contact">Contact</a>
+    </div>
+    <div class="nav-status">
+      <div class="status-dot"></div>System Online
+    </div>
+  </nav>
+
+  <!-- HERO: intro + interactive terminal (js/terminal.js) -->
+  <div id="hero">
+    <div class="hero-grid">
+      <div>
+        <div class="hero-eyebrow">Linux Specialist &amp; Robotics Inventor</div>
+        <h1 class="hero-name">Baibhab<span class="accent"> Das</span></h1>
+        <p class="hero-title">~ $ uname -a → ElectroBAI Linux 6.x</p>
+        <p class="hero-desc">Engineering the intersection of embedded systems, custom Linux distributions, and
+          AI-driven robotics. From bare-metal circuits to intelligent machines.</p>
+        <div class="hero-ctas">
+          <a href="#hub" class="btn btn-primary">Engineering Hub</a>
+          <a href="#evolution" class="btn btn-secondary">View Timeline</a>
+        </div>
+      </div>
+      <div class="terminal-wrap">
+        <div class="terminal" id="terminal">
+          <div class="terminal-bar">
+            <div class="t-dot r"></div>
+            <div class="t-dot y"></div>
+            <div class="t-dot g"></div>
+            <span class="terminal-title">baibhab@electrobai:~</span>
+          </div>
+          <div class="terminal-body" id="terminal-body">
+            <div class="terminal-output hi" id="welcome-msg">Welcome. Type "help" for available commands.
+            </div>
+            <div class="terminal-input-line">
+              <span class="t-prompt"><span class="t-host">electroBAI@linux</span>:~$&nbsp;</span>
+              <input type="text" id="cli-input" autocomplete="off" spellcheck="false" aria-label="Terminal input">
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- MODULE 02 — TIMELINE -->
+  <section id="evolution">
+    <div class="section-label">Module 02 — Chronological Record</div>
+    <h2 class="section-title">The Technical <span class="accent">Evolution</span></h2>
+    <p class="section-subtitle">A living document of hardware discovery, systems mastery, and architectural
+      ambition.</p>
+
+    <div class="timeline">
+      <div class="timeline-item fade-up">
+        <div class="t-year-col">
+          <div class="t-year">2021</div>
+          <div class="t-node"></div>
+        </div>
+        <div class="t-content">
+          <div class="t-tag">Genesis Protocol</div>
+          <div class="t-milestone">The First Circuit</div>
+          <p class="t-desc">An unexpected entry into hardware — a first LED-battery circuit ignited a
+            foundational passion for electronics and physical computing.</p>
+        </div>
+      </div>
+      <div class="timeline-item fade-up">
+        <div class="t-year-col">
+          <div class="t-year">2022</div>
+          <div class="t-node"></div>
+        </div>
+        <div class="t-content">
+          <div class="t-tag">Logic Layer</div>
+          <div class="t-milestone">Analog &amp; Digital Fundamentals</div>
+          <p class="t-desc">Dedicated focus on logic gate theory, Boolean algebra, and the foundational
+            principles of circuit design.</p>
+        </div>
+      </div>
+      <div class="timeline-item fade-up">
+        <div class="t-year-col">
+          <div class="t-year">2023</div>
+          <div class="t-node"></div>
+        </div>
+        <div class="t-content">
+          <div class="t-tag">Integration Phase</div>
+          <div class="t-milestone">Systems Depth</div>
+          <p class="t-desc">Advanced study into complex circuit dynamics, hardware-layer depth, and analog
+            signal processing with digital control logic.</p>
+        </div>
+      </div>
+      <div class="timeline-item fade-up">
+        <div class="t-year-col">
+          <div class="t-year">2024</div>
+          <div class="t-node"></div>
+        </div>
+        <div class="t-content">
+          <div class="t-tag">Embedded Systems</div>
+          <div class="t-milestone">The Microcontroller Pivot</div>
+          <p class="t-desc">Transition into embedded systems — Arduino ecosystem, AVR assembly, and initial
+            Linux kernel exploration.</p>
+        </div>
+      </div>
+      <div class="timeline-item fade-up">
+        <div class="t-year-col">
+          <div class="t-year">2025</div>
+          <div class="t-node"></div>
+        </div>
+        <div class="t-content">
+          <div class="t-tag">Distribution Engineering</div>
+          <div class="t-milestone">Custom Linux Distro</div>
+          <p class="t-desc">Scaled into SBCs and advanced microarchitectures. Developed a custom Linux
+            distribution from bootloader to userspace.</p>
+        </div>
+      </div>
+      <div class="timeline-item t-present fade-up">
+        <div class="t-year-col">
+          <div class="t-year">2026</div>
+          <div class="t-node"></div>
+        </div>
+        <div class="t-content">
+          <div class="t-tag">Present State</div>
+          <div class="t-milestone" style="color:var(--cyan)">AI × Robotics Interface</div>
+          <p class="t-desc">Interfacing robotics hardware with AI-driven decision logic. Refining
+            high-performance Linux for real-time embedded computation.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- MODULE 03 — SKILLS -->
+  <section id="skills">
+    <div class="section-label">Module 03 — Technical Specification</div>
+    <h2 class="section-title">Core <span class="accent">Competencies</span></h2>
+    <p class="section-subtitle">A precision spec sheet — the technical vocabulary of an embedded systems architect.
+    </p>
+
+    <div class="spec-grid">
+      <div class="spec-cell fade-up">
+        <div class="spec-lang">Language / ASM</div>
+        <div class="spec-name">Assembly</div>
+        <p class="spec-desc">x86 &amp; AVR architecture. Register manipulation, ISRs, memory-mapped I/O.</p>
+        <div class="spec-bar-wrap">
+          <div class="spec-bar" data-width="88" style="width:0"></div>
+        </div>
+      </div>
+      <div class="spec-cell fade-up">
+        <div class="spec-lang">Language / C#</div>
+        <div class="spec-name">C# &amp; .NET</div>
+        <p class="spec-desc">Application logic, serial communication, GUI tooling for embedded device
+          management.</p>
+        <div class="spec-bar-wrap">
+          <div class="spec-bar" data-width="75" style="width:0"></div>
+        </div>
+      </div>
+      <div class="spec-cell fade-up">
+        <div class="spec-lang">Language / Python</div>
+        <div class="spec-name">Python &amp; Bash</div>
+        <p class="spec-desc">Automation scripting, GPIO control, system orchestration, distro build pipelines.
+        </p>
+        <div class="spec-bar-wrap">
+          <div class="spec-bar" data-width="82" style="width:0"></div>
+        </div>
+      </div>
+      <div class="spec-cell fade-up">
+        <div class="spec-lang">Platform / Linux</div>
+        <div class="spec-name">Linux Kernel &amp; Distros</div>
+        <p class="spec-desc">Custom distribution engineering, kernel modules, systemd, cross-compilation
+          toolchains.</p>
+        <div class="spec-bar-wrap">
+          <div class="spec-bar" data-width="90" style="width:0"></div>
+        </div>
+      </div>
+      <div class="spec-cell fade-up">
+        <div class="spec-lang">Hardware / MCU</div>
+        <div class="spec-name">Arduino / Embedded C</div>
+        <p class="spec-desc">AVR &amp; ARM programming, SPI/I2C/UART, real-time control loops, power management.
+        </p>
+        <div class="spec-bar-wrap">
+          <div class="spec-bar" data-width="85" style="width:0"></div>
+        </div>
+      </div>
+      <div class="spec-cell fade-up">
+        <div class="spec-lang">Domain / AI+Robotics</div>
+        <div class="spec-name">Robotics &amp; AI Logic</div>
+        <p class="spec-desc">Sensor fusion, kinematics, ML inference on embedded Linux platforms.</p>
+        <div class="spec-bar-wrap">
+          <div class="spec-bar" data-width="70" style="width:0"></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- MODULE 04 — GITHUB (cards filled by js/github.js) -->
+  <section id="hub">
+    <div class="gh-header">
+      <div>
+        <div class="section-label">Module 04 — Engineering Hub</div>
+        <h2 class="section-title">GitHub <span class="accent">Repositories</span></h2>
+      </div>
+      <a href="https://github.com/ElectroBAI" target="_blank" rel="noopener noreferrer" class="gh-link">@ElectroBAI
+        &#x2197;</a>
+    </div>
+    <div class="gh-stats-grid" id="gh-stats">
+      <div class="gh-stat-card">
+        <div class="gh-stat-icon"><i class="fi fi-rr-code-branch"></i></div>
+        <div class="gh-stat-value" id="stat-repos">—</div>
+        <div class="gh-stat-label">Public Repos</div>
+        <div class="gh-stat-bar">
+          <div class="gh-stat-bar-fill"></div>
+        </div>
+      </div>
+      <div class="gh-stat-card">
+        <div class="gh-stat-icon"><i class="fi fi-rr-users"></i></div>
+        <div class="gh-stat-value" id="stat-followers">—</div>
+        <div class="gh-stat-label">Followers</div>
+        <div class="gh-stat-bar">
+          <div class="gh-stat-bar-fill"></div>
+        </div>
+      </div>
+      <div class="gh-stat-card">
+        <div class="gh-stat-icon"><i class="fi fi-rr-document"></i></div>
+        <div class="gh-stat-value" id="stat-gists">—</div>
+        <div class="gh-stat-label">Public Gists</div>
+        <div class="gh-stat-bar">
+          <div class="gh-stat-bar-fill"></div>
+        </div>
+      </div>
+      <div class="gh-stat-card">
+        <div class="gh-stat-icon"><i class="fi fi-rr-star"></i></div>
+        <div class="gh-stat-value" id="stat-stars">—</div>
+        <div class="gh-stat-label">Total Stars</div>
+        <div class="gh-stat-bar">
+          <div class="gh-stat-bar-fill"></div>
+        </div>
+      </div>
+    </div>
+    <div id="repos-container">
+      <div class="repo-loading"><span style="color:var(--cyan)">$</span> Fetching repositories…</div>
+    </div>
+  </section>
+
+  <!-- MODULE 05 — LIVE OS (TinyCore VM, js/tinycore.js) -->
+  <section id="tinycore">
+    <div class="section-label">Module 05 — Live System</div>
+    <h2 class="section-title">Real Linux, <span class="accent">In Your Browser</span></h2>
+    <p class="section-subtitle">A live TinyCore Linux kernel booting entirely client-side via v86 — an
+      x86-to-WebAssembly JIT. No server. No VM. Just bare-metal logic running in your browser tab.</p>
+
+    <div class="tc-widget fade-up">
+      <div class="tc-titlebar">
+        <div class="dots"><span></span><span></span><span></span></div>
+        <div id="tc-status">idle</div>
+      </div>
+      <div id="tc-screen">
+        <div class="tc-boot-gate" id="tc-gate">
+          <p>Custom TinyCore rootfs with <span style="color:var(--cyan)">htop</span> &amp; <span
+              style="color:var(--cyan)">neofetch</span> baked in.<br>First boot fetches ~20&nbsp;MB once,
+            then serves from cache. Networking disabled by design.</p>
+          <button id="tc-boot-btn">$ Boot TinyCore</button>
+        </div>
+      </div>
+      <div id="tc-fallback">WebAssembly unavailable — live terminal cannot run in this environment.</div>
+      <div class="tc-footbar">
+        <span>v86 (BSD-2-Clause) &middot; TinyCore Core &middot; custom_core.gz</span>
+        <span id="tc-perf-note"></span>
+      </div>
+    </div>
+  </section>
+
+  <!-- MODULE 06 — CONTACT -->
+  <section id="contact">
+    <div class="section-label">Module 06 — Signal Uplink</div>
+    <h2 class="section-title">Open <span class="accent">Channel</span></h2>
+    <div class="contact-card">
+      <div>
+        <p style="color:var(--text2);font-size:.92rem;line-height:1.75;margin-bottom:1.5rem">Interested in
+          embedded systems collaboration, Linux distribution projects, or AI-robotics research? Let's build
+          something that runs bare-metal.</p>
+        <div class="contact-fact">
+          <div class="contact-label">GitHub</div>
+          <div class="contact-value"><a href="https://github.com/ElectroBAI" target="_blank"
+              rel="noopener noreferrer">github.com/ElectroBAI</a></div>
+        </div>
+        <div class="contact-fact">
+          <div class="contact-label">Specialization</div>
+          <div class="contact-value">Linux · Embedded · Robotics · AI</div>
+        </div>
+        <div class="contact-fact">
+          <div class="contact-label">Status</div>
+          <div class="contact-value" style="color:var(--cyan2)"><span class="status-dot"
+              style="display:inline-block;margin-right:.4rem;vertical-align:middle"></span>Available for
+            collaboration</div>
+        </div>
+      </div>
+      <div class="profile-block">
+        <div style="color:var(--text3);margin-bottom:.4rem"># system.profile</div>
+        <div><span class="key">role</span><span class="sep">:</span> Student</div>
+        <div><span class="key">exp</span><span class="sep">:</span> 5+ years hardware ↔ software</div>
+        <div><span class="key">focus</span><span class="sep">:</span> AI × Embedded Systems</div>
+        <div><span class="key">arch</span><span class="sep">:</span> x86 · ARM · AVR · RISC-V</div>
+        <div><span class="key">kernel</span><span class="sep">:</span> 6.x custom build</div>
+        <div><span class="key">status</span><span class="sep">:</span> <span style="color:var(--cyan2)">ONLINE</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER (contains the [ 6¾ ] game trigger) -->
+  <footer>
+    <p>Baibhab Das · ElectroBAI · Linux Specialist &amp; Robotics Inventor</p>
+    <p style="opacity:.6;margin-top:.25rem">Built with precision · Kernel: custom-6.x <button id="miTrigger"
+        class="mi-trigger" title="sys.override()">[ 6&frac34; ]</button></p>
+  </footer>
+
+
+  <!-- EASTER EGG: Module 6¾ game modal (js/game.js) -->
+  <div class="mi-modal" id="miModal" aria-hidden="true">
+    <div class="mi-scanlines"></div>
+    <div class="mi-vignette"></div>
+    <canvas id="miCanvas"></canvas>
+    <div class="mi-dangerline" id="miDangerLine"></div>
+    <div class="mi-dangerline-label" id="miDangerLabelTag">BREACH_THRESHOLD :: 0x82</div>
+
+    <div class="mi-hud-container">
+      <div class="mi-telemetry">
+        <div class="mi-stat-item">LINES_RESOLVED <span id="miScore">0</span></div>
+        <div class="mi-stat-item">HIGH_SCORE <span id="miHigh">0</span></div>
+        <div class="mi-stat-item">MODE <span id="miModeLabel">NORMAL</span></div>
+        <div class="mi-stat-item">COMBO <span id="miCombo">x0 &middot;&times;1</span></div>
+        <div class="mi-combo-gauge-wrapper">
+          <div class="mi-combo-gauge-fill" id="miComboGauge"></div>
+        </div>
+      </div>
+      <div class="mi-status-tray">
+        <div class="mi-danger-label" id="miThreatBadge">THREAT: NOMINAL</div>
+        <button class="mi-exit-btn" id="miExit" title="Abort Session" aria-label="Close">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
+            stroke-linecap="square">
+            <line x1="18" y1="6" x2="6" y2="18"></line>
+            <line x1="6" y1="6" x2="18" y2="18"></line>
+          </svg>
+        </button>
+      </div>
+    </div>
+
+    <div class="mi-overlay-screen" id="miMsg">
+      <div class="mi-dialog-panel" id="miDialogPanel">
+        <div class="mi-badge-tag" id="miBadgeTag" hidden>&lt;! CRITICAL HARDWARE EXCEPTION !&gt;</div>
+        <h1 class="mi-title-start" id="miMsgTitle">MODULE <span class="accent">6&frac34;</span></h1>
+        <p class="mi-instructions" id="miMsgSub">Resolve falling stack calls. <span class="c-red">RED</span>
+          needs two hits. <span class="c-grey">GREY</span> is a trap &mdash; leave it. <span class="c-gold">GOLD</span>
+          diamond slows time; <span class="c-red">MAGENTA</span> diamond purges
+          the board. Chain hits fast to build <span class="c-cyan">&times;MULT</span>.</p>
+        <div class="mi-diff-row" id="miDiffRow">
+          <button class="mi-diff-pill" data-diff="easy">Easy</button>
+          <button class="mi-diff-pill active" data-diff="normal">Normal</button>
+          <button class="mi-diff-pill" data-diff="hard">Hard</button>
+          <button class="mi-diff-pill" data-diff="nightmare">Nightmare</button>
+          <button class="mi-diff-pill" data-diff="terminal">Terminal Velocity</button>
+        </div>
+        <button id="miAction" class="mi-btn mi-btn-primary">INITIALIZE</button>
+      </div>
+    </div>
+  </div>
+  <!-- SCRIPTS (deferred; order matters: animations.js must load before github.js) -->
+  <script defer src="js/background.js"></script>
+  <script defer src="js/animations.js"></script>
+  <script defer src="js/github.js"></script>
+  <script defer src="js/terminal.js"></script>
+  <script defer src="js/tinycore.js"></script>
+  <script defer src="js/game.js"></script>
+  <!-- Vercel Web Analytics -->
+  <script>
+    window.va = window.va || function () { (window.va.q = window.va.q || []).push(arguments); };
+  </script>
+  <script defer src="/_vercel/insights/script.js"></script>
+</body>
+
+</html>

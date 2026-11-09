@@ -1,0 +1,595 @@
+/* game.css — hidden Module 6¾ game (mi-*) */
+
+.mi-trigger {
+  background: none;
+  border: none;
+  color: #2a3b4c;
+  font-family: var(--mono);
+  font-size: 12px;
+  letter-spacing: 2px;
+  cursor: pointer;
+  opacity: .4;
+  margin-left: 14px;
+  padding: 2px 6px;
+  transition: opacity .3s, color .3s, text-shadow .3s;
+}
+
+.mi-trigger:hover {
+  opacity: 1;
+  color: var(--cyan);
+  text-shadow: 0 0 8px var(--cyan);
+}
+
+.mi-trigger:focus-visible {
+  outline: 1px solid var(--cyan);
+  opacity: 1;
+}
+
+
+
+body.mi-glitching {
+  animation: mi-body-glitch .38s steps(2, end);
+}
+
+@keyframes mi-body-glitch {
+
+  0%,
+  100% {
+    filter: none;
+    transform: none;
+  }
+
+  20% {
+    filter: hue-rotate(30deg) saturate(3);
+    transform: translate(1px, -1px) skewX(1deg);
+  }
+
+  40% {
+    filter: invert(.08) saturate(2);
+    transform: translate(-2px, 1px);
+  }
+
+  60% {
+    filter: hue-rotate(-40deg);
+    transform: translate(2px, 0) skewX(-1deg);
+  }
+
+  80% {
+    filter: none;
+    transform: translate(-1px, 1px);
+  }
+}
+
+.mi-modal {
+  position: fixed;
+  inset: 0;
+  background: radial-gradient(ellipse at 50% 30%, #101c2c 0%, var(--bg) 70%);
+  display: none;
+  z-index: 9999;
+  font-family: var(--mono);
+  overflow: hidden;
+}
+
+.mi-modal * {
+  user-select: none;
+}
+
+.mi-modal.mi-open {
+  display: block;
+}
+
+.mi-modal.mi-chroma #miCanvas {
+  filter: drop-shadow(3px 0 var(--magenta)) drop-shadow(-3px 0 var(--cyan));
+}
+
+.mi-scanlines {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: 1;
+  opacity: .8;
+  background: repeating-linear-gradient(0deg, rgba(0, 0, 0, .25), rgba(0, 0, 0, .25) 1px, transparent 1px, transparent 3px);
+}
+
+.mi-vignette {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  box-shadow: inset 0 0 180px 60px rgba(0, 0, 0, .85);
+}
+
+#miCanvas {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  cursor: crosshair;
+  touch-action: none;
+  z-index: 0;
+}
+
+.mi-dangerline {
+  position: absolute;
+  left: 0;
+  width: 100%;
+  height: 3px;
+  top: 82%;
+  background: repeating-linear-gradient(45deg, var(--magenta) 0 9px, transparent 9px 18px);
+  background-size: 26px 3px;
+  opacity: .45;
+  box-shadow: 0 0 10px var(--magenta), 0 0 20px rgba(255, 0, 85, .5);
+  transition: opacity .3s, box-shadow .3s;
+  animation: mi-hazard-scroll 1.6s linear infinite;
+  z-index: 2;
+}
+
+.mi-dangerline::before,
+.mi-dangerline::after {
+  content: "";
+  position: absolute;
+  top: -6px;
+  width: 1px;
+  height: 15px;
+  background: var(--magenta);
+  box-shadow: 0 0 6px var(--magenta);
+}
+
+.mi-dangerline::before {
+  left: 0;
+}
+
+.mi-dangerline::after {
+  right: 0;
+}
+
+@keyframes mi-hazard-scroll {
+  from {
+    background-position-x: 0;
+  }
+
+  to {
+    background-position-x: 26px;
+  }
+}
+
+.mi-dangerline.mi-hot {
+  opacity: 1;
+  box-shadow: 0 0 26px 4px rgba(255, 0, 85, .95);
+  animation-duration: .5s;
+}
+
+.mi-dangerline-label {
+  position: absolute;
+  left: 14px;
+  top: 82%;
+  transform: translateY(-100%);
+  padding: 2px 8px 4px;
+  font-size: 9px;
+  font-weight: 700;
+  letter-spacing: 1.5px;
+  color: var(--magenta);
+  opacity: .5;
+  text-transform: uppercase;
+  transition: opacity .3s, text-shadow .3s;
+  z-index: 2;
+}
+
+.mi-dangerline-label.mi-hot {
+  opacity: 1;
+  text-shadow: 0 0 8px var(--magenta);
+}
+
+.mi-hud-container {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: 100;
+  padding: 32px 40px;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+
+.mi-telemetry {
+  display: flex;
+  flex-direction: column;
+  gap: 7px;
+  pointer-events: auto;
+  background: rgba(7, 10, 16, .65);
+  padding: 14px 20px 18px;
+  border: 1px solid rgba(0, 240, 255, .15);
+  border-left: 3px solid var(--cyan);
+  backdrop-filter: blur(8px);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, .6);
+  width: 230px;
+}
+
+.mi-stat-item {
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 2px;
+  color: var(--text2);
+  text-transform: uppercase;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.mi-stat-item span {
+  font-size: 13px;
+  font-weight: 800;
+  color: var(--cyan);
+  text-shadow: 0 0 8px rgba(0, 240, 255, .6);
+}
+
+.mi-combo-gauge-wrapper {
+  margin-top: 4px;
+  width: 100%;
+  height: 4px;
+  background: rgba(0, 240, 255, .12);
+  border: 1px solid rgba(0, 240, 255, .25);
+  overflow: hidden;
+}
+
+.mi-combo-gauge-fill {
+  height: 100%;
+  width: 0%;
+  background: linear-gradient(90deg, var(--cyan), #70f7ff);
+  box-shadow: 0 0 10px var(--cyan);
+  animation: comboPulse 1.8s infinite alternate;
+}
+
+@keyframes comboPulse {
+  0% {
+    opacity: .85;
+    filter: drop-shadow(0 0 4px var(--cyan));
+  }
+
+  100% {
+    opacity: 1;
+    filter: drop-shadow(0 0 10px var(--cyan));
+  }
+}
+
+.mi-status-tray {
+  pointer-events: auto;
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.mi-danger-label {
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 2.5px;
+  text-transform: uppercase;
+  color: var(--cyan);
+  padding: 8px 18px;
+  background: rgba(13, 21, 32, .8);
+  border: 1px solid rgba(0, 240, 255, .4);
+  backdrop-filter: blur(8px);
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  transition: all .3s ease;
+  box-shadow: 0 0 12px rgba(0, 240, 255, .2);
+}
+
+.mi-danger-label::before {
+  content: "";
+  width: 6px;
+  height: 6px;
+  background: var(--cyan);
+  border-radius: 50%;
+  box-shadow: 0 0 8px var(--cyan);
+  animation: blinkNominal 2s infinite ease-in-out;
+}
+
+@keyframes blinkNominal {
+
+  0%,
+  100% {
+    opacity: .4
+  }
+
+  50% {
+    opacity: 1
+  }
+}
+
+.mi-danger-label.critical {
+  color: var(--magenta);
+  border-color: var(--magenta);
+  background: rgba(255, 0, 85, .12);
+  box-shadow: 0 0 20px rgba(255, 0, 85, .5), inset 0 0 8px rgba(255, 0, 85, .3);
+  animation: threatPulse .9s infinite alternate;
+}
+
+.mi-danger-label.critical::before {
+  background: var(--magenta);
+  box-shadow: 0 0 10px var(--magenta);
+  animation: blinkFast .45s infinite alternate;
+}
+
+@keyframes threatPulse {
+  0% {
+    box-shadow: 0 0 12px rgba(255, 0, 85, .3);
+    border-color: rgba(255, 0, 85, .6);
+  }
+
+  100% {
+    box-shadow: 0 0 28px rgba(255, 0, 85, .85);
+    border-color: var(--magenta);
+  }
+}
+
+@keyframes blinkFast {
+  0% {
+    opacity: .2;
+    transform: scale(.9)
+  }
+
+  100% {
+    opacity: 1;
+    transform: scale(1.2)
+  }
+}
+
+.mi-exit-btn {
+  width: 36px;
+  height: 36px;
+  border: 1px solid rgba(125, 147, 166, .3);
+  background: rgba(13, 21, 32, .8);
+  color: var(--text2);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all .2s ease;
+}
+
+.mi-exit-btn:hover {
+  border-color: var(--cyan);
+  color: var(--cyan);
+  box-shadow: 0 0 12px rgba(0, 240, 255, .3);
+}
+
+.mi-overlay-screen {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background: rgba(7, 10, 16, .88);
+  backdrop-filter: blur(14px);
+  z-index: 200;
+  padding: 24px;
+  text-align: center;
+  transition: opacity .3s cubic-bezier(.16, 1, .3, 1), visibility .3s;
+}
+
+.mi-overlay-screen.is-hidden {
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+}
+
+.mi-dialog-panel {
+  position: relative;
+  max-width: 760px;
+  width: 100%;
+  background: var(--surface);
+  border: 1px solid rgba(0, 240, 255, .3);
+  padding: 56px 44px 48px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  box-shadow: 0 0 40px rgba(0, 0, 0, .8), 0 0 24px rgba(0, 240, 255, .1);
+  clip-path: polygon(0 20px, 20px 0, calc(100% - 20px) 0, 100% 20px, 100% calc(100% - 20px), calc(100% - 20px) 100%, 20px 100%, 0 calc(100% - 20px));
+}
+
+.mi-dialog-panel::before {
+  content: "";
+  position: absolute;
+  top: 6px;
+  left: 6px;
+  width: 14px;
+  height: 14px;
+  border-top: 2px solid var(--cyan);
+  border-left: 2px solid var(--cyan);
+}
+
+.mi-dialog-panel::after {
+  content: "";
+  position: absolute;
+  bottom: 6px;
+  right: 6px;
+  width: 14px;
+  height: 14px;
+  border-bottom: 2px solid var(--cyan);
+  border-right: 2px solid var(--cyan);
+}
+
+.mi-dialog-panel.panel-gameover {
+  border-color: rgba(255, 0, 85, .4);
+  box-shadow: 0 0 50px rgba(0, 0, 0, .9), 0 0 30px rgba(255, 0, 85, .15);
+}
+
+.mi-dialog-panel.panel-gameover::before {
+  border-color: var(--magenta);
+}
+
+.mi-dialog-panel.panel-gameover::after {
+  border-color: var(--magenta);
+}
+
+.mi-title-start {
+  font-family: var(--font-heading);
+  font-weight: 800;
+  font-size: clamp(42px, 6vw, 68px);
+  letter-spacing: 4px;
+  text-transform: uppercase;
+  color: #fff;
+  margin: 0 0 24px;
+  text-shadow: -2px 0 var(--magenta), 2px 0 var(--cyan), 0 0 20px rgba(255, 255, 255, .4);
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+  text-align: center;
+}
+
+.mi-title-start.mi-over {
+  color: var(--magenta);
+  letter-spacing: 5px;
+  text-shadow: -3px 0 var(--cyan), 3px 0 var(--magenta), 0 0 25px var(--magenta);
+}
+
+.mi-title-start .accent {
+  color: var(--cyan);
+  text-shadow: -3px 0 var(--magenta), 3px 0 var(--cyan), 0 0 25px var(--cyan);
+  font-size: 1.15em;
+}
+
+.mi-instructions {
+  font-size: 13px;
+  line-height: 1.9;
+  color: var(--text2);
+  max-width: 480px;
+  margin: 0 0 38px;
+  letter-spacing: .4px;
+}
+
+.mi-instructions.mi-over {
+  font-weight: 600;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  margin-bottom: 34px;
+}
+
+.mi-instructions .c-red {
+  color: var(--magenta);
+  font-weight: 700;
+  text-shadow: 0 0 8px rgba(255, 0, 85, .5);
+}
+
+.mi-instructions .c-grey {
+  color: #94a3b8;
+  font-weight: 700;
+}
+
+.mi-instructions .c-gold {
+  color: var(--amber);
+  font-weight: 700;
+  text-shadow: 0 0 8px rgba(255, 230, 0, .5);
+}
+
+.mi-instructions .c-cyan {
+  color: var(--cyan);
+  font-weight: 700;
+  text-shadow: 0 0 8px rgba(0, 240, 255, .5);
+}
+
+.mi-instructions .score-val {
+  color: #fff;
+  font-weight: 800;
+  text-shadow: 0 0 10px rgba(255, 255, 255, .6);
+}
+
+.mi-badge-tag {
+  font-size: 10px;
+  letter-spacing: 2.5px;
+  text-transform: uppercase;
+  padding: 4px 10px;
+  border: 1px solid rgba(255, 0, 85, .4);
+  color: var(--magenta);
+  background: rgba(255, 0, 85, .08);
+  margin-bottom: 18px;
+}
+
+.mi-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--mono);
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  padding: 14px 34px;
+  cursor: pointer;
+  border: 1px solid var(--cyan);
+  background: transparent;
+  color: var(--cyan);
+  transition: all .2s cubic-bezier(.16, 1, .3, 1);
+  clip-path: polygon(0 0, calc(100% - 10px) 0, 100% 10px, 100% 100%, 10px 100%, 0 calc(100% - 10px));
+}
+
+.mi-btn-primary {
+  background: rgba(0, 240, 255, .08);
+  box-shadow: 0 0 20px rgba(0, 240, 255, .2), inset 0 0 12px rgba(0, 240, 255, .1);
+}
+
+.mi-btn-primary:hover {
+  background: var(--cyan);
+  color: var(--bg);
+  box-shadow: 0 0 35px var(--cyan), inset 0 0 16px rgba(255, 255, 255, .8);
+  transform: translateY(-1px);
+}
+
+.mi-btn-danger {
+  border-color: var(--magenta);
+  color: var(--magenta);
+  background: rgba(255, 0, 85, .08);
+  box-shadow: 0 0 20px rgba(255, 0, 85, .25), inset 0 0 12px rgba(255, 0, 85, .1);
+}
+
+.mi-btn-danger:hover {
+  background: var(--magenta);
+  color: #fff;
+  box-shadow: 0 0 35px var(--magenta), inset 0 0 16px rgba(255, 255, 255, .9);
+}
+
+.mi-diff-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  justify-content: center;
+  margin-bottom: 30px;
+}
+
+.mi-diff-pill {
+  font-family: var(--mono);
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  padding: 7px 14px;
+  background: transparent;
+  border: 1px solid rgba(0, 240, 255, .25);
+  color: var(--text2);
+  cursor: pointer;
+  transition: all .2s;
+}
+
+.mi-diff-pill:hover {
+  border-color: var(--cyan);
+  color: var(--cyan);
+}
+
+.mi-diff-pill.active {
+  background: rgba(0, 240, 255, .12);
+  border-color: var(--cyan);
+  color: var(--cyan);
+  box-shadow: 0 0 10px rgba(0, 240, 255, .4);
+}
+
+.mi-diff-pill[data-diff="terminal"].active {
+  background: rgba(255, 0, 85, .14);
+  border-color: var(--magenta);
+  color: var(--magenta);
+  box-shadow: 0 0 14px rgba(255, 0, 85, .6);
+  animation: threatPulse .9s infinite alternate;
+}
